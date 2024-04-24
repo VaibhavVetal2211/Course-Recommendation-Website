@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        
+                height: 100vh;
+                background-color: #000;
+                background-image:url('CourseRecB.jpeg');
+                background-size: cover;
+                background-position: center;
+            
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('your-background-image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content-box {
+            position: relative;
+            max-width: 80%;
+            padding: 30px;
+            background-color: none;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="content-box">
+        <h1>About us</h1>
+        <p>Welcome to our course recommendation website! We aim to provide you with personalized course recommendations based on your interests, skills, and goals. Our team is passionate about helping learners find the right courses to enhance their knowledge and advance their careers.</p>
+        <p>Whether you're looking to learn new skills, explore new subjects, or advance in your career, we're here to guide you through your learning journey. Our platform utilizes advanced algorithms to analyze your preferences and recommend courses tailored to your needs.</p>
+        <p>At Course Recommendation, we believe in the power of education to transform lives. We're committed to empowering learners worldwide by connecting them with high-quality educational resources and opportunities.</p>
+        <p>Thank you for choosing Course Recommendation for your learning needs. Happy learning!</p>
+        
+    </div>
+</div>
+
+<script>
+    function adjustContentBoxSize() {
+        const container = document.querySelector('.container');
+        const contentBox = document.querySelector('.content-box');
+
+        // Set content box max-width based on viewport width
+        const viewportWidth = window.innerWidth;
+        const maxWidthPercentage = 80; // 80% of viewport width
+        const maxWidth = (maxWidthPercentage / 100) * viewportWidth;
+        contentBox.style.maxWidth = `${maxWidth}px`;
+
+        // Ensure content box is centered vertically
+        const containerHeight = container.clientHeight;
+        const contentBoxHeight = contentBox.clientHeight;
+        if (contentBoxHeight > containerHeight) {
+            // If content box is taller than container, adjust padding
+            const paddingVertical = (containerHeight - contentBoxHeight) / 2;
+            contentBox.style.paddingTop = `${paddingVertical}px`;
+            contentBox.style.paddingBottom = `${paddingVertical}px`;
+        } else {
+            // Reset padding if content box is shorter than container
+            contentBox.style.paddingTop = '';
+            contentBox.style.paddingBottom = '';
+        }
+    }
+
+    // Call adjustContentBoxSize initially and on window resize
+    adjustContentBoxSize();
+    window.addEventListener('resize', adjustContentBoxSize);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('CourseRecB.jpeg');
+    margin: 0;
+    padding: 20px; /* added padding to body */
+    box-sizing: border-box;
+    background-color: #f2f2f2; /* added light gray background */
+    color: #333; /* changed text color to dark gray */
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto; /* increased margin to 40px */
+    padding: 30px; /* increased padding to 30px */
+    background-color: #fff; /* changed background color to white */
+    border-radius: 10px; /* increased border radius to 10px */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    margin-bottom: 60px; /* increased margin to 60px */
+    padding: 30px; /* increased padding to 30px */
+    background-color: #fff; /* changed background color to white */
+    border-radius: 10px; /* increased border radius to 10px */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 28px; /* increased font size to 28px */
+    margin-bottom: 20px; /* increased margin to 20px */
+}
+
+.post-meta {
+    font-size: 16px; /* increased font size to 16px */
+    color: #666; /* changed text color to dark gray */
+    margin-bottom: 20px; /* increased margin to 20px */
+}
+
+.post-content {
+    line-height: 1.8; /* increased line height to 1.8 */
+}
+
+/* Form styles */
+#blog-form {
+    margin-top: 60px; /* increased margin to 60px */
+}
+
+#blog-form textarea {
+    width: 90%;
+    padding: 20px; /* increased padding to 20px */
+    font-size: 18px; /* increased font size to 18px */
+    border-radius: 10px; /* increased border radius to 10px */
+    border: 1px solid #ccc; /* added border */
+    resize: vertical;
+    min-height: 150px; /* increased min height to 150px */
+}
+
+#blog-form button {
+    padding: 15px 30px; /* increased padding to 15px 30px */
+    font-size: 18px; /* increased font size to 18px */
+    background-color: #4CAF50; /* changed background color to green */
+    color: #fff; /* changed text color to white */
+    border: none;
+    border-radius: 10px; /* increased border radius to 10px */
+    cursor: pointer;
+}

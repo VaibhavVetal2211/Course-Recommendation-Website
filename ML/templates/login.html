@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            background-color: #000;
+            background-image: url('CourseRecB.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 300px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .input-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Login</h1>
+    <form id="loginForm">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="input-group">
+            <input type="submit" id="loginButton" value="Login" disabled>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Enable the login button when both username and password fields are filled
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.getElementById('loginButton');
+
+    usernameInput.addEventListener('input', checkFormFields);
+    passwordInput.addEventListener('input', checkFormFields);
+
+    function checkFormFields() {
+        if (usernameInput.value && passwordInput.value) {
+            loginButton.removeAttribute('disabled');
+        } else {
+            loginButton.setAttribute('disabled', '');
+        }
+    }
+
+    // Navigate to the form.html page when the login button is pressed
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        location.href = '/form';
+    });
+</script>
+
+</body>
+</html>

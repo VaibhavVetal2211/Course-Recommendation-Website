@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\blog_style.css" />
+    <title>CourseScope Blog</title>
+
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center;">Blogs by CourseScope</h1>
+
+    <div id="blog-posts">
+        <!-- Existing blog posts will be dynamically added here -->
+    </div>
+
+    <form id="blog-form">
+        <h2>Add New Blog Post</h2>
+        <label for="post-title">Title     :</label>
+        <input type="text" id="post-title" required><br>
+        <label for="post-author">Author :</label>
+        <input type="text" id="post-author" required><br>
+        <label for="post-content">Content:</label>
+        <textarea id="post-content" required></textarea><br>
+        <button type="button" onclick="addBlogPost()">Submit</button>
+    </form>
+</div>
+
+<script>
+    // Sample initial blog posts (can be retrieved from a database)
+    const initialBlogPosts = [
+        {
+            title: "Web Development",
+            author: "Dr M.R Verma",
+            content: "Web development involves creating websites and web applications using programming languages and frameworks to enhance digital presence and user experience."
+        },
+        {
+            title: "AI",
+            author: "Dr.John Darwin",
+            content: "Artificial Intelligence (AI) involves developing systems that can perform tasks requiring human-like intelligence, such as learning, reasoning, and problem-solving, using algorithms and data."
+        }
+    ];
+
+    // Function to render existing blog posts
+    function renderBlogPosts() {
+        const blogPostsContainer = document.getElementById("blog-posts");
+        blogPostsContainer.innerHTML = ""; // Clear existing content
+
+        initialBlogPosts.forEach(post => {
+            const postElement = document.createElement("div");
+            postElement.classList.add("post");
+
+            postElement.innerHTML = `
+                <h2 class="post-title">${post.title}</h2>
+                <p class="post-meta">By ${post.author}</p>
+                <p class="post-content">${post.content}</p>
+            `;
+
+            blogPostsContainer.appendChild(postElement);
+        });
+    }
+
+    // Function to add a new blog post
+    function addBlogPost() {
+        const title = document.getElementById("post-title").value;
+        const author = document.getElementById("post-author").value;
+        const content = document.getElementById("post-content").value;
+
+        if (title && author && content) {
+            const newPost = { title, author, content };
+            initialBlogPosts.push(newPost);
+            renderBlogPosts(); // Re-render blog posts
+            clearFormFields();
+        } else {
+            alert("Please fill in all fields.");
+        }
+    }
+
+    // Function to clear form fields after submission
+    function clearFormFields() {
+        document.getElementById("post-title").value = "";
+        document.getElementById("post-author").value = "";
+        document.getElementById("post-content").value = "";
+    }
+
+    // Initial rendering of blog posts
+    renderBlogPosts();
+</script>
+
+</body>
+</html>

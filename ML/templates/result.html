@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        th,
+        td {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+            font-weight: normal;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .recommendation {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        .recommendation h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .recommendation p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Courses</h1>
+        {% if recommended_courses %}
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Course Title</th>
+                    <th>Duration (hours)</th>
+                    <th>URL</th>
+                    <th>Course type</th>
+                    <th>Price</th>
+                    <th>Level</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in recommended_courses %}
+                <tr class="recommendation">
+                    <td>{{ loop.index }}</td>
+                    <td>{{ course.course_title }}</td>
+                    <td>{{ course.duration }}</td> 
+                    <td><a href="{{ course.url }}" target="_blank">{{ course.url }}</a></td>
+                    
+                    <td>
+                        {% if course.price %}
+                        Paid
+                        {% else %}
+                        Unpaid
+                        {% endif %}
+                    </td>
+
+                    <td>{{ course.price }}</td> 
+
+                    <td>
+                        {% if course.level == 'BeginnerLevel' %}
+                        Beginner
+                        {% elif course.level == 'IntermediateLevel' %}
+                        Intermediate
+                        {% elif course.level == 'ExpertLevel' %}
+                        Expert
+                        {% else %}
+                        All Levels
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No courses found within the specified duration range.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
